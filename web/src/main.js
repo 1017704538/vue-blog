@@ -4,6 +4,9 @@ import router from './router'
 import './assets/css/global.css'
 import './assets/icon-font/iconfont.css'
 
+import Live2d from './components/Live2d'
+
+Vue.use(Live2d);
 
 import axios from 'axios'
 import './plugins/element.js'

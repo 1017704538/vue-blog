@@ -7,7 +7,7 @@
           mode="horizontal"
           background-color="#545c64"
           text-color="#fff"
-          active-text-color="#ffd04b"
+          active-text-color="#8eb0df"
         >
           <el-menu-item index="0">
             <img src="../assets/img/logo.png" style="width:15rem" />
@@ -55,11 +55,18 @@
         </el-container>
       </el-container>
     </el-container>
+    <Live2d></Live2d>
   </div>
 </template>
 
 <script>
-export default {};
+import Live2d from "@/components/Live2d";
+export default {
+  components: {
+    /*其他组件*/
+    Live2d
+  }
+};
 </script>
 
 <style>
