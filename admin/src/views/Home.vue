@@ -23,7 +23,7 @@
             </el-menu-item>
             <el-menu-item index="/tags/create">
               <template slot="title">
-                <i class="el-icon-tickets"></i>新建标签
+                <i class="el-icon-document"></i>新建标签
               </template>
             </el-menu-item>
             <el-menu-item index="/tags/list">
@@ -35,11 +35,27 @@
 
           <el-submenu index="2">
             <template slot="title">
+              <i class="el-icon-menu"></i>评论管理
+            </template>
+            <el-menu-item index="">
+              <template slot="title">
+                <i class="el-icon-tickets"></i>文章评论
+              </template>
+            </el-menu-item>
+            <el-menu-item index="">
+              <template slot="title">
+                <i class="el-icon-tickets"></i>留言
+              </template>
+            </el-menu-item>
+          </el-submenu>
+
+          <el-submenu index="3">
+            <template slot="title">
               <i class="el-icon-menu"></i>文件管理
             </template>
           </el-submenu>
 
-          <el-submenu index="3">
+          <el-submenu index="4">
             <template slot="title">
               <i class="el-icon-setting"></i>系统管理
             </template>

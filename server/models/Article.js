@@ -1,8 +1,6 @@
 const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
-    // 文章id
-    aid: [{ type: mongoose.SchemaTypes.ObjectId, ref: 'Article' }],
     //标题
     title: { type: String },
     //简介
@@ -23,7 +21,9 @@ const schema = new mongoose.Schema({
     //点击量
     click: {type: Number},
     //评论
-    comment: { type: String }
+    comment: { type: String },
+    //作者
+    author: { type: mongoose.SchemaTypes.ObjectId, ref: 'User'}
 })
 
 module.exports = mongoose.model('Article', schema)

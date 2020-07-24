@@ -38,6 +38,7 @@
         <!-- Markdown 编写-->
         <mavon-editor v-model="article.body" ref="md" @imgAdd="$imgAdd" @imgDel="$imgDel"></mavon-editor>
 
+
         <el-form-item>
           <el-button type="primary" @click="save" style="float: right; margin-top: 15px">保存</el-button>
         </el-form-item>
@@ -84,7 +85,7 @@ export default {
       const res = await this.$http.get(`rest/tags`);
       this.tagsList = res.data;
     },
-
+    //发布
     async save() {
       this.nowTime = new Date();
       this.article.date = this.formatDateTime(this.nowTime);
@@ -101,7 +102,22 @@ export default {
         message: "保存成功"
       });
     },
+    //保存草稿
+    async saveDraft() {
+      this.nowTime = new Date();
+      this.article.date = this.formatDateTime(this.nowTime);
+      this.article.content = this.$refs.md.d_render //html
+      let res;
+      
+      res = await this.$http.post("rest/drafts", this.article);
 
+      this.$router.push("/drafts/list");
+      this.$message({
+        type: "success",
+        message: "保存成功"
+      });
+    },    
+    //加载文章信息
     async fetch() {
       const res = await this.$http.get(`rest/articles/${this.id}`);
       this.article = res.data;
