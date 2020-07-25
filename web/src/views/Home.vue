@@ -45,6 +45,11 @@
             <el-menu-item index="2-2">选项2</el-menu-item>
             <el-menu-item index="2-3">选项3</el-menu-item>
           </el-submenu>
+          <el-menu-item index="7" style="float: right">
+            <template slot="title">
+              <i class="iconfont icon-yonghu">登录</i>
+            </template>
+          </el-menu-item>
         </el-menu>
       </el-header>
       <el-container>
@@ -56,16 +61,19 @@
       </el-container>
     </el-container>
     <Live2d></Live2d>
+    <Background></Background>
   </div>
 </template>
 
 <script>
 import Live2d from "@/components/Live2d";
+import Background from "@/components/Background";
 export default {
   components: {
     /*其他组件*/
-    Live2d
-  }
+    Live2d,
+    Background,
+  },
 };
 </script>
 
@@ -75,11 +83,9 @@ export default {
 }
 .el-header {
   padding: 0 !important;
+  opacity: 0.8;
 }
 .el-menu {
-  display: flex;
-}
-.el-menu-item {
-  flex: 1;
+  border: 0 !important;
 }
 </style>

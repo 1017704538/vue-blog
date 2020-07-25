@@ -4,9 +4,12 @@ import router from './router'
 import './assets/css/global.css'
 import './assets/icon-font/iconfont.css'
 
-import Live2d from './components/Live2d'
 
+import Live2d from './components/Live2d'
 Vue.use(Live2d);
+
+import Background from './components/Background'
+Vue.use(Background)
 
 import axios from 'axios'
 import './plugins/element.js'
