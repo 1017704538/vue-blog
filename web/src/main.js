@@ -11,9 +11,27 @@ Vue.use(Live2d);
 import Background from './components/Background'
 Vue.use(Background)
 
+import Card from './components/Card.vue'
+Vue.component('m-card', Card)
+
+Vue.mixin({
+  computed: {
+    uploadUrl(){
+      return this.$http.defaults.baseURL + '/upload'
+    }
+  },
+  methods: {
+    getAuthHeaders(){
+      return {
+        Authorization: `Bearer ${localStorage.token || ''}`
+      }
+    }
+  }
+})
+
 import axios from 'axios'
 import './plugins/element.js'
-axios.defaults.baseURL = 'http://localhost:3000/admin/api'
+axios.defaults.baseURL = 'http://localhost:3000/web/api'
 Vue.prototype.$http = axios
 
 Vue.config.productionTip = false

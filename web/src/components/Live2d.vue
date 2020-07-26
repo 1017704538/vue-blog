@@ -49,7 +49,7 @@
 
 	#landlord {
 		position: fixed;
-		right: 0;
+		left: 0;
 		bottom: 60px;
 		width: 280px;
 		height: 250px;

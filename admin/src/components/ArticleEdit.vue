@@ -101,22 +101,7 @@ export default {
         type: "success",
         message: "保存成功"
       });
-    },
-    //保存草稿
-    async saveDraft() {
-      this.nowTime = new Date();
-      this.article.date = this.formatDateTime(this.nowTime);
-      this.article.content = this.$refs.md.d_render //html
-      let res;
-      
-      res = await this.$http.post("rest/drafts", this.article);
-
-      this.$router.push("/drafts/list");
-      this.$message({
-        type: "success",
-        message: "保存成功"
-      });
-    },    
+    },  
     //加载文章信息
     async fetch() {
       const res = await this.$http.get(`rest/articles/${this.id}`);

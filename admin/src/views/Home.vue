@@ -37,12 +37,12 @@
             <template slot="title">
               <i class="el-icon-menu"></i>评论管理
             </template>
-            <el-menu-item index="">
+            <el-menu-item index>
               <template slot="title">
                 <i class="el-icon-tickets"></i>文章评论
               </template>
             </el-menu-item>
-            <el-menu-item index="">
+            <el-menu-item index>
               <template slot="title">
                 <i class="el-icon-tickets"></i>留言
               </template>
@@ -59,6 +59,11 @@
             <template slot="title">
               <i class="el-icon-setting"></i>系统管理
             </template>
+            <el-menu-item index="/users/list">
+              <template slot="title">
+                <i class="el-icon-tickets"></i>用户列表
+              </template>
+            </el-menu-item>
           </el-submenu>
         </el-menu>
       </el-aside>
@@ -75,7 +80,7 @@ export default {
   data() {
     return {
       // 是否折叠
-      isCollapse: false
+      isCollapse: false,
     };
   },
   methods: {
@@ -83,8 +88,8 @@ export default {
     // 点击按钮切换菜单的折叠与展开
     toggleCollapse() {
       this.iscollapse = !this.iscollapse;
-    }
-  }
+    },
+  },
 };
 </script>
 

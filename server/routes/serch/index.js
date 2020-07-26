@@ -3,17 +3,11 @@ module.exports = app => {
     const express = require('express')
     const router = express.Router()
     const Article = require('../../models/Article')
-    const Draft = require('../../models/Draft')
     const Tag = require('../../models/Tag')
 
     //文章列表
     router.get('/article/list', async (req, res) => {
         const data = await Article.find().populate('tagid')
-        res.send(data)
-    })
-    //草稿箱
-    router.get('/draft/list', async (req, res) => {
-        const data = await Draft.find().populate('tagid')
         res.send(data)
     })
     //标签列表

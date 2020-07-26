@@ -6,6 +6,7 @@ import TagEdit from '../components/TagEdit.vue'
 import TagsList from '../components/TagsList.vue' 
 import ArticleEdit from '../components/ArticleEdit.vue'
 import ArticleList from '../components/ArticleList.vue'
+import UserList from '../components/UserList.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -24,6 +25,8 @@ const routes = [
       { path: '/articles/create', component: ArticleEdit },
       { path: '/articles/edit/:id', component: ArticleEdit, props: true },
       { path: '/articles/list', component: ArticleList },
+
+      { path: '/users/list', component: UserList },
 
 
     ]

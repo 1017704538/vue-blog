@@ -3,4 +3,19 @@ html, body, #app {
     height: 100%;
     margin: 0;
     padding: 0;
+    cursor: url('../img/mouse.png'),auto;
+}
+ul :hover{
+    cursor: url('../img/mouse2.png'),auto;
+}
+.el-button :hover {
+    cursor: url('../img/mouse2.png'),auto;
+}
+.el-card {
+    width: 70%;
+    opacity: 0.8;
+}
+
+.el-form {
+    margin: 20px 10px 10px 10px;
 }
