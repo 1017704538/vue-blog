@@ -10,7 +10,8 @@ const schema = new mongoose.Schema({
     } },
     nickname: { type: String },
     email: { type: String },
-    avatar: { type: String }
+    avatar: { type: String },
+    isAdmin: { type: Boolean, default: false }
 })
 
 module.exports = mongoose.model('User', schema)

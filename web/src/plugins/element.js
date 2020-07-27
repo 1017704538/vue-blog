@@ -14,7 +14,9 @@ import {
     Input,
     Form,
     FormItem,
-    Upload
+    Upload,
+    Message,
+    MessageBox
 
 } from 'element-ui'
 
@@ -34,3 +36,6 @@ Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Upload)
 
+// 挂载到Vue原型对象上
+Vue.prototype.$message = Message
+Vue.prototype.$confirm = MessageBox.confirm

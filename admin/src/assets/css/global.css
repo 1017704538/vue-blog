@@ -25,3 +25,9 @@ html, body, #app {
 .el-tag {
     margin-right: 5px;
 }
+.el-table th > .cell {
+    text-align: center;
+  }
+.el-table .cell {
+    text-align: center;
+  }

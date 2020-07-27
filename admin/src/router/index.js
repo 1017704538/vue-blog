@@ -7,6 +7,8 @@ import TagsList from '../components/TagsList.vue'
 import ArticleEdit from '../components/ArticleEdit.vue'
 import ArticleList from '../components/ArticleList.vue'
 import UserList from '../components/UserList.vue'
+import UserEdit from '../components/UserEdit.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -27,7 +29,7 @@ const routes = [
       { path: '/articles/list', component: ArticleList },
 
       { path: '/users/list', component: UserList },
-
+      { path: '/users/edit/:id', component: UserEdit, props: true },
 
     ]
   },

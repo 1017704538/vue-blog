@@ -5,10 +5,21 @@ module.exports = app => {
     const jwt = require('jsonwebtoken')
     const assert = require('http-assert')
     const Article = require('../../models/Article')
+    const Comment = require('../../models/Comment')
     const User = require('../../models/User')
     //文章详情
     router.get('/article/:id', async (req, res) => {
         const data = await Article.findById(req.params.id).populate('tagid')
+        res.send(data)
+    })
+    //增加评论
+    router.post('/comment/create', async (req, res) => {
+        const data = await Comment.create(req.body)
+        res.send(data)
+    })
+    //评论列表
+    router.get('/comment/list/:id', async (req, res) => {
+        const data = await Comment.find({aid:req.params.id}).populate('uid')
         res.send(data)
     })
     //头像上传
@@ -24,6 +35,7 @@ module.exports = app => {
         const data = await User.create(req.body)
         res.send(data)
     })
+    app.use('/web/api', router)
     //用户登录
     app.post('/web/api/login', async (req, res) => {
         const { username, password } = req.body
@@ -38,7 +50,13 @@ module.exports = app => {
 
         // 3.返回token
         const token = jwt.sign({ id: user._id }, app.get('secret'))
-        res.send({ token })
+        res.send({ userinfo: user, token: token })
     })
-    app.use('/web/api', router)
+    // 错误处理函数
+    app.use(async (err, req, res, next) => {
+        // console.log(err)
+        res.status(err.statusCode || 500).send({
+            message: err.message
+        })
+    })
 }

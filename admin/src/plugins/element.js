@@ -24,7 +24,9 @@ import {
     MessageBox,
     Tag,
     Upload,
-    Pagination
+    Pagination,
+    Switch,
+    Radio
 
 } from 'element-ui'
 
@@ -51,6 +53,8 @@ Vue.use(Table)
 Vue.use(Tag)
 Vue.use(Upload)
 Vue.use(Pagination)
+Vue.use(Switch)
+Vue.use(Radio)
 
 // 挂载到Vue原型对象上
 Vue.prototype.$message = Message

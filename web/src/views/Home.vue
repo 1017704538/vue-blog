@@ -47,9 +47,14 @@
             <el-menu-item index="2-2">选项2</el-menu-item>
             <el-menu-item index="2-3">选项3</el-menu-item>
           </el-submenu>
-          <el-menu-item index="/login" style="float: right">
+          <el-menu-item index="/login" style="float: right" v-if="!token">
             <template slot="title">
               <i class="iconfont icon-yonghu">登录</i>
+            </template>
+          </el-menu-item>
+          <el-menu-item style="float: right" v-if="token">
+            <template slot="title">
+              <Avatar :avatar="userinfo.avatar" :nickname="userinfo.nickname"></Avatar>
             </template>
           </el-menu-item>
         </el-menu>
@@ -59,7 +64,9 @@
           <!-- <Player></Player> -->
         </el-aside>
         <el-container>
-          <el-main><router-view></router-view></el-main>
+          <el-main>
+            <router-view></router-view>
+          </el-main>
         </el-container>
       </el-container>
       <el-footer>©️2020 By Yukikaze</el-footer>
@@ -67,20 +74,43 @@
     <!-- live2d小人 -->
     <Live2d></Live2d>
     <!-- 背景渐变切换 -->
-    <Background></Background>    
+    <Background></Background>
   </div>
 </template>
 
 <script>
 import Live2d from "@/components/Live2d";
 import Background from "@/components/Background";
-import Player from 'zw-player'
+import Avatar from "@/components/Avatar";
+import Player from "zw-player";
 export default {
+  inject: ["reload"], //注入reload方法
   components: {
     /*其他组件*/
     Live2d,
     Background,
-    Player
+    Player,
+    Avatar,
+  },
+  data() {
+    return {
+      token: "",
+      userinfo: {},
+    };
+  },
+  created() {
+    this.getUserInfo()
+  },
+  methods: {
+    getUserInfo() {
+      this.userinfo = JSON.parse(localStorage.getItem("userPermission"))
+      this.token = localStorage.getItem("token")
+      // console.log(this.userinfo)
+    }
+  },
+  mounted() {
+    // this.token = JSON.parse(localStorage.token);
+    // this.userinfo = JSON.parse(localStorage.userPermission);
   },
 };
 </script>

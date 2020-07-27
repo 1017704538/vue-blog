@@ -18,6 +18,12 @@
             <img :src="scope.row.avatar" style="height:4rem;" />
           </template>
         </el-table-column>
+        <el-table-column prop="isAdmin" label="是否管理员">
+          <template  slot-scope="scope">
+            <el-switch v-model="scope.row.isAdmin" active-color="#13ce66" inactive-color="#ff4949">
+            </el-switch>           
+          </template>
+        </el-table-column>
         <el-table-column fixed="right" label="操作" width="180">
           <template slot-scope="scope">
             <el-button

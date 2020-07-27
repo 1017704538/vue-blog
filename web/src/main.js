@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import './plugins/element.js'
 import './assets/css/global.css'
 import './assets/icon-font/iconfont.css'
 
+import http from './http'
+Vue.prototype.$http = http
 
 import Live2d from './components/Live2d'
 Vue.use(Live2d);
@@ -29,10 +32,7 @@ Vue.mixin({
   }
 })
 
-import axios from 'axios'
 import './plugins/element.js'
-axios.defaults.baseURL = 'http://localhost:3000/web/api'
-Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
 
