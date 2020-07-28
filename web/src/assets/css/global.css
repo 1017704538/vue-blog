@@ -19,3 +19,15 @@ ul :hover{
 .el-form {
     margin: 20px 10px 10px 10px;
 }
+
+.el-pagination {
+    margin-top: 10px;
+}
+.el-pagination :hover {
+    cursor: url('../img/mouse2.png'),auto;
+}
+@media screen and (max-width: 750px) {
+    .el-message-box {
+      width: 60% !important;
+    }
+}

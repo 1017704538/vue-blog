@@ -19,12 +19,12 @@
               <i class="iconfont icon-shouye">首页</i>
             </template>
           </el-menu-item>
-          <el-menu-item index="2">
+          <el-menu-item index="/article/list">
             <template slot="title">
               <i class="iconfont icon-16">文章</i>
             </template>
           </el-menu-item>
-          <el-menu-item index="3">
+          <el-menu-item index="/photo">
             <template slot="title">
               <i class="iconfont icon-tupian">照片墙</i>
             </template>
@@ -72,7 +72,7 @@
       <el-footer>©️2020 By Yukikaze</el-footer>
     </el-container>
     <!-- live2d小人 -->
-    <Live2d></Live2d>
+    <!-- <Live2d></Live2d> -->
     <!-- 背景渐变切换 -->
     <Background></Background>
   </div>

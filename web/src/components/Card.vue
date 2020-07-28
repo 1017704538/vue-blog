@@ -45,6 +45,10 @@ export default {
 </script>
 
 <style>
+.card-article {
+  margin-bottom: 10px;
+  width: 100%;
+}
 .card-cover {
   padding: 20px;
   margin: 20px;
@@ -54,6 +58,7 @@ export default {
 }
 .card-cover img {
   width: 100%;
+  height: 100%;
   display: block;
   border-radius: 4px;
   cursor: url("../assets/img/mouse2.png"), auto;

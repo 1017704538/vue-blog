@@ -5,6 +5,8 @@ const schema = new mongoose.Schema({
     content: { type: String },
     //时间
     date: { type: String },
+    //文章标题
+    title: { type: String },
     //文章id
     aid: { type: mongoose.SchemaTypes.ObjectId, ref: 'Article' },
     //评论人的用户id

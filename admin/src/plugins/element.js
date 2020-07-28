@@ -26,7 +26,8 @@ import {
     Upload,
     Pagination,
     Switch,
-    Radio
+    Radio,
+    Popover
 
 } from 'element-ui'
 
@@ -55,6 +56,7 @@ Vue.use(Upload)
 Vue.use(Pagination)
 Vue.use(Switch)
 Vue.use(Radio)
+Vue.use(Popover)
 
 // 挂载到Vue原型对象上
 Vue.prototype.$message = Message

@@ -4,6 +4,7 @@ module.exports = app => {
     const router = express.Router()
     const Article = require('../../models/Article')
     const Tag = require('../../models/Tag')
+    const Comment = require('../../models/Comment')
 
     //文章列表
     router.get('/article/list', async (req, res) => {
@@ -13,6 +14,11 @@ module.exports = app => {
     //标签列表
     router.get('/tag/list', async (req, res) => {
         const data = await Tag.find().populate('aid')
+        res.send(data)
+    })
+    //评论列表
+    router.get('/comment/list', async (req, res) => {
+        const data = await Comment.find().populate('uid')
         res.send(data)
     })
     //标签列表分页

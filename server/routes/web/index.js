@@ -7,9 +7,19 @@ module.exports = app => {
     const Article = require('../../models/Article')
     const Comment = require('../../models/Comment')
     const User = require('../../models/User')
+    //文章列表
+    router.get('/article/list', async (req, res) => {
+        const data = await Article.find().populate('tagid')
+        res.send(data)
+    })
     //文章详情
     router.get('/article/:id', async (req, res) => {
         const data = await Article.findById(req.params.id).populate('tagid')
+        res.send(data)
+    })
+    //更新文章数据
+    router.put('/article/edit/:id', async (req, res) => {
+        const data = await Article.findByIdAndUpdate(req.params.id, req.body)
         res.send(data)
     })
     //增加评论
@@ -19,7 +29,11 @@ module.exports = app => {
     })
     //评论列表
     router.get('/comment/list/:id', async (req, res) => {
-        const data = await Comment.find({aid:req.params.id}).populate('uid')
+        const data = await Comment.find({ aid: req.params.id }).populate('uid')
+        res.send(data)
+    })
+    router.get('/article/list/comment', async (req, res) => {
+        const data = await Comment.find().populate('aid')
         res.send(data)
     })
     //头像上传

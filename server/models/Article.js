@@ -21,7 +21,7 @@ const schema = new mongoose.Schema({
     //点击量
     click: {type: Number},
     //评论
-    comment: { type: String },
+    comment: {type: String},
     //作者
     author: { type: mongoose.SchemaTypes.ObjectId, ref: 'User'}
 })
