@@ -1,14 +1,14 @@
 <template>
   <el-card class="article_list">
     <m-card
-      v-for="(item, index) in articleList.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+      v-for="(item, index) in result.slice((currentPage-1)*pagesize,currentPage*pagesize)"
       :key="index"
       :title="item.title"
       :date="item.date"
       :tags="item.tags"
       :cover="item.cover"
       :introduction="item.introduction"
-      :linkto="`${item._id}`"
+      :linkto="`article/${item._id}`"
       :comments="item.comment"
     ></m-card>
     <!-- 分页区域 -->
@@ -19,7 +19,7 @@
       :page-sizes="[1, 2, 5, 10]"
       :page-size="pagesize"
       layout="total, sizes, prev, pager, next, jumper"
-      :total="articleList.length"
+      :total="result.length"
     ></el-pagination>
   </el-card>
 </template>
@@ -32,14 +32,15 @@ export default {
       currentPage: 1,
       // 当前每页显示多少条数据
       pagesize: 5,
-      articleList: [],
-      commentNum: "",
+      result: [],
     };
   },
+
   methods: {
-    async getArticleList() {
-      const res = await this.$http.get("article/list");
-      this.articleList = res.data;
+    fetch() {
+      var list = decodeURIComponent(this.$route.query.obj);
+      this.result = JSON.parse(list);
+        console.log(this.result);
     },
     //监听pageSize改变
     handleSizeChange(newSize) {
@@ -52,13 +53,10 @@ export default {
       this.currentPage = newPage;
     },
   },
+
   created() {
-    this.getArticleList();
+    this.fetch();
   },
 };
 </script>
 
-<style>
-/* .article_list {
-} */
-</style>

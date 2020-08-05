@@ -2,14 +2,14 @@
   <div>
     <el-card :body-style="{ padding: '0px' }" class="card-article">
       <div class="card-header">
-        <span>{{title}}</span>
+        <router-link tag="span" :to="linkto">{{title}}</router-link>
       </div>
       <div class="card-info">
         <template>
           <i class="iconfont icon-rili">{{date}}</i>
         </template>
         <template>
-          <i class="iconfont icon-biaoqian" v-for="(item, index) in tags" :key="index">{{item.name}}</i>
+          <i class="iconfont icon-biaoqian" v-for="(item, index) in tags" :key="index">{{item}}</i>
         </template>
         <template>
           <i class="iconfont icon-msg">{{comments}}</i>

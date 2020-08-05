@@ -11,7 +11,7 @@
           active-text-color="#8eb0df"
           router
         >
-          <el-menu-item index="0">
+          <el-menu-item index="/homecontent">
             <img src="../assets/img/logo.png" style="width:15rem" />
           </el-menu-item>
           <el-menu-item index="/homecontent">
@@ -47,14 +47,16 @@
             <el-menu-item index="2-2">选项2</el-menu-item>
             <el-menu-item index="2-3">选项3</el-menu-item>
           </el-submenu>
+          <el-submenu style="float: right" v-if="token" index="7">
+            <template slot="title">
+              <Avatar :avatar="userinfo.avatar" :nickname="userinfo.nickname"></Avatar>
+            </template>
+            <el-menu-item index="/personal">个人空间</el-menu-item>
+            <el-menu-item @click="logout">退出登录</el-menu-item>
+          </el-submenu>
           <el-menu-item index="/login" style="float: right" v-if="!token">
             <template slot="title">
               <i class="iconfont icon-yonghu">登录</i>
-            </template>
-          </el-menu-item>
-          <el-menu-item style="float: right" v-if="token">
-            <template slot="title">
-              <Avatar :avatar="userinfo.avatar" :nickname="userinfo.nickname"></Avatar>
             </template>
           </el-menu-item>
         </el-menu>
@@ -62,6 +64,7 @@
       <el-container>
         <el-aside width="20%">
           <!-- <Player></Player> -->
+          <Search></Search>
         </el-aside>
         <el-container>
           <el-main>
@@ -72,7 +75,7 @@
       <el-footer>©️2020 By Yukikaze</el-footer>
     </el-container>
     <!-- live2d小人 -->
-    <!-- <Live2d></Live2d> -->
+    <Live2d></Live2d>
     <!-- 背景渐变切换 -->
     <Background></Background>
   </div>
@@ -81,6 +84,7 @@
 <script>
 import Live2d from "@/components/Live2d";
 import Background from "@/components/Background";
+import Search from "@/components/Search";
 import Avatar from "@/components/Avatar";
 import Player from "zw-player";
 export default {
@@ -89,6 +93,7 @@ export default {
     /*其他组件*/
     Live2d,
     Background,
+    Search,
     Player,
     Avatar,
   },
@@ -99,19 +104,22 @@ export default {
     };
   },
   created() {
-    this.getUserInfo()
+    this.getUserInfo();
   },
   methods: {
     getUserInfo() {
-      this.userinfo = JSON.parse(localStorage.getItem("userPermission"))
-      this.token = localStorage.getItem("token")
+      this.userinfo = JSON.parse(localStorage.getItem("userPermission"));
+      this.token = localStorage.getItem("token");
       // console.log(this.userinfo)
-    }
+    },
+    //登出
+    logout() {
+      localStorage.clear();
+      //刷新页面
+      this.reload();
+    },
   },
-  mounted() {
-    // this.token = JSON.parse(localStorage.token);
-    // this.userinfo = JSON.parse(localStorage.userPermission);
-  },
+  mounted() {},
 };
 </script>
 

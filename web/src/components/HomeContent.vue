@@ -3,7 +3,7 @@
     <m-card
       :title="article.title"
       :date="article.date"
-      :tags="article.tagid"
+      :tags="article.tags"
       :cover="article.cover"
       :introduction="article.introduction"
       :linkto="`article/${article._id}`"

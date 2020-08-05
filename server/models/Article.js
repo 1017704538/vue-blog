@@ -12,7 +12,7 @@ const schema = new mongoose.Schema({
     //html
     content: { type: String },
     //所含标签
-    tags: { type: String },
+    tags: { type: Array },
     //标签id
     tagid: [{ type: mongoose.SchemaTypes.ObjectId, ref: 'Tag' }
     ],
@@ -20,7 +20,7 @@ const schema = new mongoose.Schema({
     date: { type: String },
     //点击量
     click: {type: Number},
-    //评论
+    //评论数量
     comment: {type: String},
     //作者
     author: { type: mongoose.SchemaTypes.ObjectId, ref: 'User'}

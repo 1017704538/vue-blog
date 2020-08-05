@@ -22,6 +22,36 @@ module.exports = app => {
         const data = await Article.findByIdAndUpdate(req.params.id, req.body)
         res.send(data)
     })
+    //搜索一些文章
+    router.get('/search', (req, res) => {
+        let regexp = new RegExp(req.query.key, 'i')
+
+        Article.find(
+            {
+                $or: [
+                    { title: { $regex: regexp } },
+                    { introduction: { $regex: regexp } },
+                    { content: { $regex: regexp } },
+                    { tags: { $regex: regexp } },
+                    { date: { $regex: regexp } },
+                ]
+            }, (err, doc) => {
+                if (err) {
+                    console.log(err)
+                    res.send({
+                        code: 400,
+                        msg: "查询失败"
+                    })
+                }
+                if (doc) {
+                    res.send({
+                        code: 200,
+                        msg: "查询成功",
+                        data: doc
+                    })
+                }
+            })
+    })
     //增加评论
     router.post('/comment/create', async (req, res) => {
         const data = await Comment.create(req.body)
@@ -41,7 +71,7 @@ module.exports = app => {
     const upload = multer({ dest: __dirname + '/../../uploads' })
     app.post('/web/api/upload', upload.single('file'), async (req, res) => {
         const file = req.file
-        file.url = `http://localhost:3000/uploads/${file.filename}`
+        file.url = `http://Articlehost:3000/uploads/${file.filename}`
         res.send(file)
     })
     //用户注册
