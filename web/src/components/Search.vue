@@ -5,6 +5,7 @@
       prefix-icon="el-icon-search"
       v-model="key"
       @keyup.enter.native="onSubmit"
+      clearable
     ></el-input>
   </el-card>
 </template>
@@ -23,6 +24,8 @@ export default {
       //路由跳转并传递对象
       var arr = JSON.stringify(res.data.data);
       this.$router.push("/result?obj=" + encodeURIComponent(arr));
+      //清空搜索框内容
+      this.key = ''
     },
   },
 };

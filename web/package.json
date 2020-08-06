@@ -13,8 +13,7 @@
     "marked": "^1.1.1",
     "velocity-animate": "^1.5.2",
     "vue": "^2.6.11",
-    "vue-router": "^3.2.0",
-    "zw-player": "^1.0.6"
+    "vue-router": "^3.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",

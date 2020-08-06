@@ -21,6 +21,9 @@ Vue.component('m-card', Card)
 import CommentItem from './components/CommentItem.vue'
 Vue.component('commentitem', CommentItem)
 
+import LatestItem from './components/LatestItem.vue'
+Vue.component('m-item', LatestItem)
+
 Vue.mixin({
   computed: {
     uploadUrl(){

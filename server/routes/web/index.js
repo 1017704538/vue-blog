@@ -52,6 +52,12 @@ module.exports = app => {
                 }
             })
     })
+    //随机文章列表 默认5篇
+    router.get('/some/articles', async (req, res) => {
+        await Article.aggregate( [ { $sample: { size: 5 } } ] ).exec((err, doc) => {
+            res.send(doc)
+        })
+    })
     //增加评论
     router.post('/comment/create', async (req, res) => {
         const data = await Comment.create(req.body)
@@ -62,9 +68,11 @@ module.exports = app => {
         const data = await Comment.find({ aid: req.params.id }).populate('uid')
         res.send(data)
     })
-    router.get('/article/list/comment', async (req, res) => {
-        const data = await Comment.find().populate('aid')
-        res.send(data)
+    //最新评论
+    router.get('/latest/comment', async (req, res) => {
+        await Comment.find({}).populate('aid').sort({ '_id': -1 }).limit(10).exec(function (err, doc) {
+            res.send(doc)
+        })
     })
     //头像上传
     const multer = require('multer')

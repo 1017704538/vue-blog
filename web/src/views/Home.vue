@@ -63,8 +63,8 @@
       </el-header>
       <el-container>
         <el-aside width="20%">
-          <!-- <Player></Player> -->
           <Search></Search>
+          <Latest></Latest>
         </el-aside>
         <el-container>
           <el-main>
@@ -75,7 +75,7 @@
       <el-footer>©️2020 By Yukikaze</el-footer>
     </el-container>
     <!-- live2d小人 -->
-    <Live2d></Live2d>
+    <!-- <Live2d></Live2d> -->
     <!-- 背景渐变切换 -->
     <Background></Background>
   </div>
@@ -86,7 +86,7 @@ import Live2d from "@/components/Live2d";
 import Background from "@/components/Background";
 import Search from "@/components/Search";
 import Avatar from "@/components/Avatar";
-import Player from "zw-player";
+import Latest from "@/components/Latest";
 export default {
   inject: ["reload"], //注入reload方法
   components: {
@@ -94,8 +94,8 @@ export default {
     Live2d,
     Background,
     Search,
-    Player,
     Avatar,
+    Latest,
   },
   data() {
     return {
@@ -115,6 +115,7 @@ export default {
     //登出
     logout() {
       localStorage.clear();
+      this.$router.push('/homecontent')
       //刷新页面
       this.reload();
     },

@@ -17,7 +17,9 @@ import {
     Upload,
     Message,
     MessageBox,
-    Pagination
+    Pagination,
+    Collapse,
+    CollapseItem,
 
 } from 'element-ui'
 
@@ -37,6 +39,8 @@ Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Upload)
 Vue.use(Pagination)
+Vue.use(Collapse)
+Vue.use(CollapseItem)
 
 // 挂载到Vue原型对象上
 Vue.prototype.$message = Message

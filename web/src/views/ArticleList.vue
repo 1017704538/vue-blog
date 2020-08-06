@@ -59,6 +59,5 @@ export default {
 </script>
 
 <style>
-/* .article_list {
-} */
+
 </style>
