@@ -9,6 +9,8 @@ import ArticleList from '../components/ArticleList.vue'
 import UserList from '../components/UserList.vue'
 import UserEdit from '../components/UserEdit.vue'
 import CommentList from '../components/CommentList.vue'
+import PhotoAdd from '../components/PhotoAdd.vue'
+import PhotoList from '../components/PhotoList.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +35,9 @@ const routes = [
       { path: '/users/edit/:id', component: UserEdit, props: true },
 
       { path: '/comments/list', component: CommentList },
+
+      { path: '/photos/add', component: PhotoAdd },
+      { path: '/photos/list', component: PhotoList },
 
     ]
   },

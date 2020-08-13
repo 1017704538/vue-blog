@@ -51,7 +51,7 @@
             <template slot="title">
               <Avatar :avatar="userinfo.avatar" :nickname="userinfo.nickname"></Avatar>
             </template>
-            <el-menu-item index="/personal">个人空间</el-menu-item>
+            <el-menu-item index="/admin" v-if="userinfo.isAdmin">后台管理</el-menu-item>
             <el-menu-item @click="logout">退出登录</el-menu-item>
           </el-submenu>
           <el-menu-item index="/login" style="float: right" v-if="!token">
@@ -61,8 +61,8 @@
           </el-menu-item>
         </el-menu>
       </el-header>
-      <el-container>
-        <el-aside width="20%">
+      <el-container style="height: 100%">
+        <el-aside >
           <Search></Search>
           <Latest></Latest>
         </el-aside>
@@ -75,7 +75,7 @@
       <el-footer>©️2020 By Yukikaze</el-footer>
     </el-container>
     <!-- live2d小人 -->
-    <!-- <Live2d></Live2d> -->
+    <Live2d></Live2d>
     <!-- 背景渐变切换 -->
     <Background></Background>
   </div>
@@ -110,7 +110,7 @@ export default {
     getUserInfo() {
       this.userinfo = JSON.parse(localStorage.getItem("userPermission"));
       this.token = localStorage.getItem("token");
-      // console.log(this.userinfo)
+      console.log(this.userinfo.isAdmin)
     },
     //登出
     logout() {

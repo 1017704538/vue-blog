@@ -6,7 +6,7 @@
     </el-header>
     <el-container>
       <el-aside width="202px">
-        <el-menu background-color="#F5F5F5" router>
+        <el-menu background-color="#F5F5F5" router unique-opened>
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-menu"></i>文章管理
@@ -53,6 +53,16 @@
             <template slot="title">
               <i class="el-icon-menu"></i>文件管理
             </template>
+            <el-menu-item index="/photos/add">
+              <template slot="title">
+                <i class="el-icon-tickets"></i>上传图片
+              </template>
+            </el-menu-item>
+            <el-menu-item index="/photos/list">
+              <template slot="title">
+                <i class="el-icon-tickets"></i>图片列表
+              </template>
+            </el-menu-item>
           </el-submenu>
 
           <el-submenu index="4">

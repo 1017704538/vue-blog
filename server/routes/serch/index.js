@@ -3,12 +3,18 @@ module.exports = app => {
     const express = require('express')
     const router = express.Router()
     const Article = require('../../models/Article')
+    const Photo = require('../../models/Photo')
     const Tag = require('../../models/Tag')
     const Comment = require('../../models/Comment')
 
     //文章列表
     router.get('/article/list', async (req, res) => {
         const data = await Article.find().populate('tagid')
+        res.send(data)
+    })
+    //图片列表
+    router.get('/photo/list', async (req, res) => {
+        const data = await Photo.find().populate('uid')
         res.send(data)
     })
     //标签列表
@@ -27,7 +33,7 @@ module.exports = app => {
     //     var pagenum = Number(req.query.pagenum || 1) // 当前页码 如果没有传值，默认为1
     //     var limit = Number(req.query.pagesize || 5) //每页显示数据条数 如果没有传值，默认为5
     //     var pages = 1 //总页数
-        
+
 
     //     Tag.count().then(async (count) => {
     //     // 计算总页数，向上取整数,去最大值

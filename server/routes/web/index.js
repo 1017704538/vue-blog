@@ -5,6 +5,7 @@ module.exports = app => {
     const jwt = require('jsonwebtoken')
     const assert = require('http-assert')
     const Article = require('../../models/Article')
+    const Photo = require('../../models/Photo')
     const Comment = require('../../models/Comment')
     const User = require('../../models/User')
     //文章列表
@@ -54,7 +55,7 @@ module.exports = app => {
     })
     //随机文章列表 默认5篇
     router.get('/some/articles', async (req, res) => {
-        await Article.aggregate( [ { $sample: { size: 5 } } ] ).exec((err, doc) => {
+        await Article.aggregate([{ $sample: { size: 5 } }]).exec((err, doc) => {
             res.send(doc)
         })
     })
@@ -68,11 +69,16 @@ module.exports = app => {
         const data = await Comment.find({ aid: req.params.id }).populate('uid')
         res.send(data)
     })
-    //最新评论
+    //最新评论 10条
     router.get('/latest/comment', async (req, res) => {
         await Comment.find({}).populate('aid').sort({ '_id': -1 }).limit(10).exec(function (err, doc) {
             res.send(doc)
         })
+    })
+    //图片列表
+    router.get('/photo/list', async (req, res) => {
+        const data = await Photo.find()
+        res.send(data)
     })
     //头像上传
     const multer = require('multer')

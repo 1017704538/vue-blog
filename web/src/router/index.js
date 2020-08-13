@@ -7,6 +7,7 @@ import Login from '../components/Login.vue'
 import Register from '../components/Register.vue'
 import Result from '../components/Result.vue'
 import ArticleList from '../views/ArticleList.vue'
+import PhotoWall from '../views/PhotoWall.vue'
 
 Vue.use(VueRouter)
 
@@ -19,6 +20,7 @@ Vue.use(VueRouter)
     children: [
       { path: '/homecontent', component: HomeContent },
       { path: '/article/list', component: ArticleList },
+      { path: '/photo', component: PhotoWall },
       { path: '/article/:id', component: Article, props: true },
       { path: '/login', component: Login },
       { path: '/register', component: Register },

@@ -1,34 +1,36 @@
 <template>
-  <el-card class="latest">
-    <el-collapse accordion @change="change">
-      <el-collapse-item>
-        <template slot="title">
-          最新评论
-          <i class="header-icon el-icon-info"></i>
-        </template>
-        <m-item
-          v-for="(item, index) in commentList"
-          :key="index"
-          :content="item.content"
-          :title="item.aid.title"
-          :linkto="`article/${item.aid._id}`"
-        ></m-item>
-      </el-collapse-item>
-      <el-collapse-item>
-        <template slot="title">
-          随机文章
-          <i class="header-icon el-icon-refresh"></i>
-        </template>
-        <m-item
-          v-for="(item, index) in articleList"
-          :key="index"
-          :content="item.title"
-          :title="item.introduction"
-          :linkto="`article/${item._id}`"
-        ></m-item>
-      </el-collapse-item>
-    </el-collapse>
-  </el-card>
+  <div>
+    <el-card class="latest">
+      <el-collapse accordion @change="change">
+        <el-collapse-item>
+          <template slot="title">
+            最新评论
+            <i class="header-icon el-icon-info"></i>
+          </template>
+          <m-item
+            v-for="(item, index) in commentList"
+            :key="index"
+            :content="item.content"
+            :title="item.aid.title"
+            :linkto="`article/${item.aid._id}`"
+          ></m-item>
+        </el-collapse-item>
+        <el-collapse-item>
+          <template slot="title">
+            随机文章
+            <i class="header-icon el-icon-refresh"></i>
+          </template>
+          <m-item
+            v-for="(item, index) in articleList"
+            :key="index"
+            :content="item.title"
+            :title="item.introduction"
+            :linkto="`article/${item._id}`"
+          ></m-item>
+        </el-collapse-item>
+      </el-collapse>
+    </el-card>
+  </div>
 </template>
 
 <script>

@@ -26,6 +26,7 @@ export default {
   background-color: rgba(230, 238, 232, 0.65);
   margin: 10px;
   border-radius: 4px;
+  padding: 5px;
 }
 .user img {
   width: 40px;
