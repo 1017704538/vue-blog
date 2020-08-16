@@ -4,7 +4,7 @@
     <div v-html="content" class="content"></div>
     <!-- 评论输入框 -->
     <div class="comment">
-      <el-input type="textarea" autosize placeholder="请输入内容" v-model="comment.content"></el-input>
+      <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" placeholder="请输入内容" v-model="comment.content"></el-input>
       <el-button type="primary" round @click="addComment">发布</el-button>
     </div>
     <!-- 评论列表 -->
@@ -142,7 +142,7 @@ export default {
 }
 
 .comment button {
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 h1,

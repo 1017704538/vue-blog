@@ -42,7 +42,7 @@
                 <i class="el-icon-tickets"></i>文章评论
               </template>
             </el-menu-item>
-            <el-menu-item index>
+            <el-menu-item index="/messages/list">
               <template slot="title">
                 <i class="el-icon-tickets"></i>留言
               </template>
@@ -94,7 +94,9 @@ export default {
     };
   },
   methods: {
-    logout() {},
+    logout() {
+      this.$router.push("/login");
+    },
     // 点击按钮切换菜单的折叠与展开
     toggleCollapse() {
       this.iscollapse = !this.iscollapse;

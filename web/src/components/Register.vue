@@ -74,9 +74,9 @@ export default {
         nickname: [
           { required: true, message: "请输入昵称", trigger: "blur" },
           {
-            min: 6,
+            min: 3,
             max: 15,
-            message: "昵称长度在6-15个字符之间",
+            message: "昵称长度在3-15个字符之间",
             trigger: "blur",
           },
         ],

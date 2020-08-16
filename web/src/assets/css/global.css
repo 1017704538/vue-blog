@@ -26,6 +26,10 @@ ul :hover{
 .el-pagination :hover {
     cursor: url('../img/mouse2.png'),auto;
 }
+.el-tag {
+    margin: 10px;
+    cursor: url('../img/mouse2.png'),auto;
+  }
 @media screen and (max-width: 750px) {
     .el-message-box {
       width: 60% !important;

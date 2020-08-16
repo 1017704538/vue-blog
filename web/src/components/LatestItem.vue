@@ -26,13 +26,20 @@ export default {
 <style>
 .latest_comment_list {
   border-radius: 4px;
-  background-color: rgba(230, 238, 232, 0.65);
+
   margin: 10px;
   font-size: 14px;
   padding: 5px;
 }
 .item_content {
-  background-color: #fff;
+  border-radius: 4px;
+  background: #1ec7e6;
+  color: #fff;
   text-align: center;
+}
+.latest_comment_list :hover {
+  background: #fff;
+  text-shadow: 0 0 10px #1ec7e6, 0 0 20px #1ec7e6, 0 0 30px #1ec7e6,
+    0 0 40px #1ec7e6;
 }
 </style>

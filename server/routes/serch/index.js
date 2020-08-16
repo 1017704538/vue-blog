@@ -6,6 +6,7 @@ module.exports = app => {
     const Photo = require('../../models/Photo')
     const Tag = require('../../models/Tag')
     const Comment = require('../../models/Comment')
+    const Message = require('../../models/Message')
 
     //文章列表
     router.get('/article/list', async (req, res) => {
@@ -25,6 +26,11 @@ module.exports = app => {
     //评论列表
     router.get('/comment/list', async (req, res) => {
         const data = await Comment.find().populate('uid')
+        res.send(data)
+    })
+    //留言列表
+    router.get('/message/list', async (req, res) => {
+        const data = await Message.find().populate('uid')
         res.send(data)
     })
     //标签列表分页

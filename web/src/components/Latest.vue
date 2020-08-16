@@ -17,6 +17,19 @@
         </el-collapse-item>
         <el-collapse-item>
           <template slot="title">
+            最新留言
+            <i class="header-icon el-icon-info"></i>
+          </template>
+          <m-item
+            v-for="(item, index) in messageList"
+            :key="index"
+            :content="item.content"
+            :linkto="toMessage"
+            :title="item.uid.nickname"
+          ></m-item>
+        </el-collapse-item>
+        <el-collapse-item>
+          <template slot="title">
             随机文章
             <i class="header-icon el-icon-refresh"></i>
           </template>
@@ -38,7 +51,9 @@ export default {
   data() {
     return {
       commentList: [],
+      messageList: [],
       articleList: [],
+      toMessage: "message",
     };
   },
   methods: {
@@ -46,6 +61,11 @@ export default {
     async getCommentList() {
       const res = await this.$http.get("/latest/comment");
       this.commentList = res.data;
+    },
+    //
+    async getMessageList() {
+      const res = await this.$http.get("/latest/message");
+      this.messageList = res.data;
     },
     //获取随机文章列表
     async getArticleList() {
@@ -61,6 +81,7 @@ export default {
   created() {
     this.getCommentList();
     this.getArticleList();
+    this.getMessageList();
   },
 };
 </script>

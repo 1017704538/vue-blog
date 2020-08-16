@@ -8,10 +8,19 @@ import Register from '../components/Register.vue'
 import Result from '../components/Result.vue'
 import ArticleList from '../views/ArticleList.vue'
 import PhotoWall from '../views/PhotoWall.vue'
+import TagWall from '../views/TagWall.vue'
+import MessageBoard from '../views/MessageBoard.vue'
+
+import Mhome from '../mviews/Mhome.vue'
+
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 Vue.use(VueRouter)
 
-  const routes = [
+const routes = [
   {
     path: '/',
     name: 'Home',
@@ -21,20 +30,26 @@ Vue.use(VueRouter)
       { path: '/homecontent', component: HomeContent },
       { path: '/article/list', component: ArticleList },
       { path: '/photo', component: PhotoWall },
+      { path: '/tag', component: TagWall },
+      { path: '/message', component: MessageBoard },
+
       { path: '/article/:id', component: Article, props: true },
       { path: '/login', component: Login },
       { path: '/register', component: Register },
       { path: '/result', component: Result },
     ]
   },
+  {
+    path: '/m',
+    name: 'mHome',
+    component: Mhome
+  }
 ]
+
 
 const router = new VueRouter({
   routes
 })
 
-const originalPush = VueRouter.prototype.push
-VueRouter.prototype.push = function push(location) {
-  return originalPush.call(this, location).catch(err => err)
-}
+
 export default router

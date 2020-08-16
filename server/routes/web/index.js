@@ -7,6 +7,8 @@ module.exports = app => {
     const Article = require('../../models/Article')
     const Photo = require('../../models/Photo')
     const Comment = require('../../models/Comment')
+    const Tag = require('../../models/Tag')
+    const Message = require('../../models/Message')
     const User = require('../../models/User')
     //文章列表
     router.get('/article/list', async (req, res) => {
@@ -64,14 +66,35 @@ module.exports = app => {
         const data = await Comment.create(req.body)
         res.send(data)
     })
+    //增加留言
+    router.post('/message/create', async (req, res) => {
+        const data = await Message.create(req.body)
+        res.send(data)
+    })
     //评论列表
     router.get('/comment/list/:id', async (req, res) => {
         const data = await Comment.find({ aid: req.params.id }).populate('uid')
         res.send(data)
     })
+    //标签列表
+    router.get('/tag/list', async (req, res) => {
+        const data = await Tag.find()
+        res.send(data)
+    })
+    //留言列表
+    router.get('/message/list', async (req, res) => {
+        const data = await Message.find().populate('uid')
+        res.send(data)
+    })
     //最新评论 10条
     router.get('/latest/comment', async (req, res) => {
         await Comment.find({}).populate('aid').sort({ '_id': -1 }).limit(10).exec(function (err, doc) {
+            res.send(doc)
+        })
+    })
+    //最新留言 10条
+    router.get('/latest/message', async (req, res) => {
+        await Message.find({}).populate('uid').sort({ '_id': -1 }).limit(10).exec(function (err, doc) {
             res.send(doc)
         })
     })
@@ -85,7 +108,7 @@ module.exports = app => {
     const upload = multer({ dest: __dirname + '/../../uploads' })
     app.post('/web/api/upload', upload.single('file'), async (req, res) => {
         const file = req.file
-        file.url = `http://Articlehost:3000/uploads/${file.filename}`
+        file.url = `http://localhost:3000/uploads/${file.filename}`
         res.send(file)
     })
     //用户注册

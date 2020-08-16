@@ -20,6 +20,7 @@ import {
     Pagination,
     Collapse,
     CollapseItem,
+    Tag,
 
 } from 'element-ui'
 
@@ -41,6 +42,7 @@ Vue.use(Upload)
 Vue.use(Pagination)
 Vue.use(Collapse)
 Vue.use(CollapseItem)
+Vue.use(Tag)
 
 // 挂载到Vue原型对象上
 Vue.prototype.$message = Message

@@ -5,6 +5,9 @@ import './plugins/element.js'
 // 全局样式
 import './assets/css/global.css'
 
+import './assets/icon-font/iconfont.css'
+
+
 
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
@@ -14,9 +17,8 @@ import moment from 'moment' //导入文件
 Vue.prototype.$moment = moment;
 
 
-import axios from 'axios'
-axios.defaults.baseURL = 'http://localhost:3000/admin/api'
-Vue.prototype.$http = axios
+import http from './http'
+Vue.prototype.$http = http
 
 
 Vue.mixin({

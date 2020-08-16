@@ -29,12 +29,12 @@
               <i class="iconfont icon-tupian">照片墙</i>
             </template>
           </el-menu-item>
-          <el-menu-item index="4">
+          <el-menu-item index="/tag">
             <template slot="title">
               <i class="iconfont icon-biaoqian">标签墙</i>
             </template>
           </el-menu-item>
-          <el-menu-item index="5">
+          <el-menu-item index="/message">
             <template slot="title">
               <i class="iconfont icon-msg">留言板</i>
             </template>
@@ -43,15 +43,29 @@
             <template slot="title">
               <i class="iconfont icon-gongjuxiang">工具站</i>
             </template>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-3">选项3</el-menu-item>
+            <el-menu-item index key="http://www.galmoe.com">
+              <a href="http://www.galmoe.com/" target="_self">b站视频封面提取</a>
+            </el-menu-item>
+            <el-menu-item index key="http://www.dianyinggou.com/linkNav/">
+              <a href="http://www.dianyinggou.com/linkNav/" target="_self">电影狗</a>
+            </el-menu-item>
+            <el-menu-item index key="https://www.zoomeye.org/">
+              <a href="https://www.zoomeye.org/" target="_self">钟馗之眼</a>
+            </el-menu-item>
+            <el-menu-item index key="https://www.luomapan.com/">
+              <a href="https://www.luomapan.com/" target="_self">罗马盘</a>
+            </el-menu-item>
+            <el-menu-item index key="https://yandex.com/">
+              <a href="https://yandex.com/" target="_self">yandex搜索</a>
+            </el-menu-item>
+            <el-menu-item index key="https://magi.com/">
+              <a href="https://magi.com/" target="_self">AI学习引擎</a>
+            </el-menu-item>
           </el-submenu>
           <el-submenu style="float: right" v-if="token" index="7">
             <template slot="title">
               <Avatar :avatar="userinfo.avatar" :nickname="userinfo.nickname"></Avatar>
             </template>
-            <el-menu-item index="/admin" v-if="userinfo.isAdmin">后台管理</el-menu-item>
             <el-menu-item @click="logout">退出登录</el-menu-item>
           </el-submenu>
           <el-menu-item index="/login" style="float: right" v-if="!token">
@@ -62,7 +76,7 @@
         </el-menu>
       </el-header>
       <el-container style="height: 100%">
-        <el-aside >
+        <el-aside>
           <Search></Search>
           <Latest></Latest>
         </el-aside>
@@ -110,12 +124,12 @@ export default {
     getUserInfo() {
       this.userinfo = JSON.parse(localStorage.getItem("userPermission"));
       this.token = localStorage.getItem("token");
-      console.log(this.userinfo.isAdmin)
+      // console.log(this.userinfo.isAdmin)
     },
     //登出
     logout() {
       localStorage.clear();
-      this.$router.push('/homecontent')
+      this.$router.push("/homecontent");
       //刷新页面
       this.reload();
     },
@@ -139,5 +153,13 @@ export default {
   font-size: 12px;
   text-align: center;
   color: #fff;
+}
+.el-menu a {
+  text-decoration: none;
+  color: #fff;
+  display: inline-block;
+  /*跟随父元素的宽高*/
+  height: 100%;
+  width: 100%;
 }
 </style>
