@@ -7,7 +7,7 @@
       v-on:leave="leave"
     >
       <img v-bind:src="showImg" v-if="show" />
-      <!-- <img src="../static/bg/0.png" v-if="show" /> -->
+      <!-- <img src="../static/bg/0.jpg" v-if="show" /> -->
     </transition>
   </div>
 </template>
@@ -22,7 +22,7 @@ export default {
       imgs: [
         {
           fileName: "0.jpg",
-          imgURL: require("../static/bg/0.png"),
+          imgURL: require("../static/bg/0.jpg"),
         },
         {
           fileName: "1.jpg",
@@ -33,16 +33,16 @@ export default {
           imgURL: require("../static/bg/2.jpg"),
         },
         {
-          fileName: "3.png",
-          imgURL: require("../static/bg/3.png"),
+          fileName: "3.jpg",
+          imgURL: require("../static/bg/3.jpg"),
         },
         {
-          fileName: "4.png",
-          imgURL: require("../static/bg/4.png"),
+          fileName: "4.jpg",
+          imgURL: require("../static/bg/4.jpg"),
         },
       ],
       isAnimate: false,
-      showImg: require("../static/bg/0.png"),
+      showImg: require("../static/bg/0.jpg"),
       showIndex: 0,
       show: true,
     };

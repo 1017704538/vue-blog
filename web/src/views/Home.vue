@@ -115,6 +115,7 @@ export default {
     return {
       token: "",
       userinfo: {},
+      background: false,
     };
   },
   created() {

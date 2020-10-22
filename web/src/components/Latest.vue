@@ -12,7 +12,7 @@
             :key="index"
             :content="item.content"
             :title="item.aid.title"
-            :linkto="`article/${item.aid._id}`"
+            :linkto="`/article/${item.aid._id}`"
           ></m-item>
         </el-collapse-item>
         <el-collapse-item>
@@ -38,7 +38,7 @@
             :key="index"
             :content="item.title"
             :title="item.introduction"
-            :linkto="`article/${item._id}`"
+            :linkto="`/article/${item._id}`"
           ></m-item>
         </el-collapse-item>
       </el-collapse>

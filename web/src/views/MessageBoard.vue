@@ -1,7 +1,7 @@
 <template lang="">
   <el-card>
     <div class="message">
-      <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" placeholder="请输入内容" v-model="message.content" :rows="2"></el-input>
+      <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" placeholder="请输入内容" v-model="message.content" :rows="2" clearable></el-input>
       <el-button type="primary" round @click="addMessage">发布</el-button>
     </div>
     <!-- 留言列表 -->
@@ -78,6 +78,7 @@ export default {
           )._id;
           const res = await this.$http.post("/message/create", this.message);
             this.getMessageList();
+            this.message.content = "";
         } else {
           this.$message.error("留言不能为空");
         }

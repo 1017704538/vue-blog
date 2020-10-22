@@ -1,40 +1,51 @@
 <template>
-  <div>
-    <quick-menu
-      :menu-count="getCount"
-      :icon-class="icons"
-      :menu-url-list="list"
-      :background-color="backgroundColor"
-      :color="color"
-      :position="position"
-      :is-open-new-tab="getIsOpenNewTab"
-      @process="print"
-    ></quick-menu>
+  <div class="mHome">
+    <Header></Header>
+    <div class="main"><router-view></router-view></div>
+    <div class="goTop" @click="backTop">
+      <van-icon name="upgrade" size="2.5rem"/>
+    </div>
   </div>
 </template>
 
 <script>
-import quickMenu from "vue-quick-menu";
-
+import Header from "./Header.vue";
 export default {
   components: {
-    quickMenu,
+    Header,
   },
-  data() {
-    return {
-      count: 4,
-      icons: ["fa fa-github", "fa fa-comment", "fa fa-code", "fa fa-envelope"],
-      list: [
-        { isLink: false },
-        { isLink: true, url: "/doo" },
-        { isLink: true, url: "/foo" },
-        { isLink: false },
-      ],
-      backgroundColor: "#17c4c5",
-      color: "#ffffff",
-      position: "top-left",
-      isOpenNewTab: false,
-    };
+  methods: {
+    //回到顶部
+    backTop() {
+      let top = document.documentElement.scrollTop || document.body.scrollTop;
+      // 实现滚动效果
+      const timeTop = setInterval(() => {
+        document.body.scrollTop = document.documentElement.scrollTop = top -= 50;
+        if (top <= 0) {
+          clearInterval(timeTop);
+        }
+      }, 10);
+    },
   },
 };
 </script>
+
+<style>
+.mHome {
+  background-color: #f7f8fa;
+}
+.goTop {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 1.5rem;
+  border-radius: 50%;
+  top: auto;
+  display: block;
+  cursor: pointer;
+  z-index: 999;
+}
+.main {
+  width: 100%;
+  height: 100%;
+}
+</style>

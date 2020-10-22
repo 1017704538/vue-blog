@@ -104,6 +104,7 @@ export default {
           )._id;
           const res = await this.$http.post("/comment/create", this.comment);
           this.getCommentList();
+          this.comment.content = "";
         } else {
           this.$message.error("评论不能为空");
         }
@@ -367,7 +368,7 @@ dl dd {
 dd {
   margin-left: 0;
 }
-body{
+.content{
     margin: 0 auto;
     font-family: "Microsoft YaHei", arial,sans-serif;
     color: #444444;

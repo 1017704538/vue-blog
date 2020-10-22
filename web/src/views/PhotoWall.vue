@@ -18,7 +18,6 @@ export default {
   methods: {
     async getPhotoList() {
       const res = await this.$http.get("/photo/list");
-      //   console.log(res.data)
       this.imgsArr = this.imgsArr.concat(res.data);
     },
   },
@@ -34,7 +33,7 @@ export default {
   opacity: 0.8;
   padding: 20px;
   position: absolute;
-  top: 10%;
+  top: 0;
   bottom: 10%;
   width: 60%;
   border-radius: 4px;

@@ -8,9 +8,11 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "core-js": "^3.6.5",
     "element-ui": "^2.4.5",
     "marked": "^1.1.1",
+    "vant": "^2.10.10",
     "velocity-animate": "^1.5.2",
     "vue": "^2.6.11",
     "vue-quick-menu": "^1.0.7",
@@ -21,6 +23,8 @@
     "@vue/cli-plugin-router": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
     "babel-plugin-component": "^1.1.1",
+    "babel-plugin-import": "^1.13.1",
+    "compression-webpack-plugin": "^5.0.2",
     "vue-cli-plugin-element": "~1.0.1",
     "vue-template-compiler": "^2.6.11",
     "vue-waterfall-easy": "^2.4.4"

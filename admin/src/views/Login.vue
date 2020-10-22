@@ -19,11 +19,7 @@
         </el-form-item>
         <!-- 密码 -->
         <el-form-item prop="password">
-          <el-input
-            type="password"
-            prefix-icon="iconfont icon-mima"
-            v-model="loginForm.password"
-          ></el-input>
+          <el-input type="password" prefix-icon="iconfont icon-mima" v-model="loginForm.password"></el-input>
         </el-form-item>
         <!-- 按钮区域 -->
         <el-form-item class="btns">
@@ -65,18 +61,24 @@ export default {
       this.$refs.loginFormRef.resetFields();
     },
     async login() {
-      const res = await this.$http.post("login", this.loginForm);
-      // console.log(res.data.token)
-      localStorage.token = res.data.token;
-      //当前用户信息
-      localStorage.userPermission = JSON.stringify(res.data.userinfo);
-      if(JSON.parse(localStorage.getItem("userPermission")).isAdmin === true) {
-      this.$router.push("/");
-      this.$message.success("登录成功");
-      }else {
-        this.$message.error("无管理员权限");
-        localStorage.clear()
-      }
+      //登录预验证
+      this.$refs.loginFormRef.validate(async (valid) => {
+        if (!valid) return;
+        const res = await this.$http.post("login", this.loginForm);
+        // console.log(res.data.token)
+        localStorage.token = res.data.token;
+        //当前用户信息
+        localStorage.userPermission = JSON.stringify(res.data.userinfo);
+        if (
+          JSON.parse(localStorage.getItem("userPermission")).isAdmin === true
+        ) {
+          this.$router.push("/");
+          this.$message.success("登录成功");
+        } else {
+          this.$message.error("无管理员权限");
+          localStorage.clear();
+        }
+      });
     },
   },
 };

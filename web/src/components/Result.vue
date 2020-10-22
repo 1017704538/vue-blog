@@ -40,7 +40,7 @@ export default {
     fetch() {
       var list = decodeURIComponent(this.$route.query.obj);
       this.result = JSON.parse(list);
-        console.log(this.result);
+        // console.log(this.result);
     },
     //监听pageSize改变
     handleSizeChange(newSize) {

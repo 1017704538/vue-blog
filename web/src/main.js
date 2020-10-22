@@ -2,10 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import './plugins/element.js'
+import './plugins/vant.js'
 import 'element-ui/lib/theme-chalk/display.css';
 import './assets/css/global.css'
 import './assets/icon-font/iconfont.css'
-
 import http from './http'
 Vue.prototype.$http = http
 
