@@ -32,14 +32,20 @@ const MessageBoard = () => import(/* webpackChunkName: "MessageBoard" */ '../vie
 
 // import Mhome from '../mviews/Mhome.vue'
 const Mhome = () => import(/* webpackChunkName: "Mhome" */ '../mviews/Mhome.vue')
+const homeCard = () => import(/* webpackChunkName: "Mhome" */ '../mviews/homeCard.vue')
+
 const mArticleList = () => import(/* webpackChunkName: "mArticle" */ '../mviews/ArticleList.vue')
+
+const mArticle = () => import(/* webpackChunkName: "Article" */ '../mviews/Article.vue')
+
 const File = () => import(/* webpackChunkName: "File" */ '../mviews/File.vue')
-const Message = () => import(/* webpackChunkName: "Message"" */ '../mviews/Message.vue')
-const mArticle = () => import(/* webpackChunkName: "Article"" */ '../mviews/Article.vue')
-const homeCard = () => import(/* webpackChunkName: "homeCard"" */ '../mviews/homeCard.vue')
-const mResult = () => import(/* webpackChunkName: "mResult"" */ '../mviews/Result.vue')
-const mLogin = () => import(/* webpackChunkName: "mLogin"" */ '../mviews/Login.vue')
-const mRegister = () => import(/* webpackChunkName: "mRegister"" */ '../mviews/Register.vue')
+
+const Message = () => import(/* webpackChunkName: "Message" */ '../mviews/Message.vue')
+
+const mResult = () => import(/* webpackChunkName: "mResult" */ '../mviews/Result.vue')
+
+const mLogin = () => import(/* webpackChunkName: "mLogin_mRegister" */ '../mviews/Login.vue')
+const mRegister = () => import(/* webpackChunkName: "mLogin_mRegister" */ '../mviews/Register.vue')
 
 
 const originalPush = VueRouter.prototype.push

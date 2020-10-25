@@ -12,7 +12,7 @@
           router
         >
           <el-menu-item index="/homecontent">
-            <img src="../assets/img/logo.png" style="width:15rem" />
+            <img src="../assets/img/logo.png" style="width: 15rem" />
           </el-menu-item>
           <el-menu-item index="/homecontent">
             <template slot="title">
@@ -44,10 +44,14 @@
               <i class="iconfont icon-gongjuxiang">工具站</i>
             </template>
             <el-menu-item index key="http://www.galmoe.com">
-              <a href="http://www.galmoe.com/" target="_self">b站视频封面提取</a>
+              <a href="http://www.galmoe.com/" target="_self"
+                >b站视频封面提取</a
+              >
             </el-menu-item>
             <el-menu-item index key="http://www.dianyinggou.com/linkNav/">
-              <a href="http://www.dianyinggou.com/linkNav/" target="_self">电影狗</a>
+              <a href="http://www.dianyinggou.com/linkNav/" target="_self"
+                >电影狗</a
+              >
             </el-menu-item>
             <el-menu-item index key="https://www.zoomeye.org/">
               <a href="https://www.zoomeye.org/" target="_self">钟馗之眼</a>
@@ -62,9 +66,17 @@
               <a href="https://magi.com/" target="_self">AI学习引擎</a>
             </el-menu-item>
           </el-submenu>
+          <el-menu-item index="" @click="showBackground(background)">
+            <template slot="title">
+              <i class="iconfont icon-shouye">背景切换</i>
+            </template>
+          </el-menu-item>
           <el-submenu style="float: right" v-if="token" index="7">
             <template slot="title">
-              <Avatar :avatar="userinfo.avatar" :nickname="userinfo.nickname"></Avatar>
+              <Avatar
+                :avatar="userinfo.avatar"
+                :nickname="userinfo.nickname"
+              ></Avatar>
             </template>
             <el-menu-item @click="logout">退出登录</el-menu-item>
           </el-submenu>
@@ -91,7 +103,8 @@
     <!-- live2d小人 -->
     <Live2d></Live2d>
     <!-- 背景渐变切换 -->
-    <Background></Background>
+    <Background v-show="background"></Background>
+    <div class="top" @click="backTop"><i class="el-icon-caret-top"></i></div>
   </div>
 </template>
 
@@ -134,6 +147,20 @@ export default {
       //刷新页面
       this.reload();
     },
+    showBackground(visible) {
+      this.background = !visible;
+    },
+    //回到顶部
+    backTop() {
+      let top = document.documentElement.scrollTop || document.body.scrollTop;
+      // 实现滚动效果
+      const timeTop = setInterval(() => {
+        document.body.scrollTop = document.documentElement.scrollTop = top -= 50;
+        if (top <= 0) {
+          clearInterval(timeTop);
+        }
+      }, 10);
+    },
   },
   mounted() {},
 };
@@ -162,5 +189,23 @@ export default {
   /*跟随父元素的宽高*/
   height: 100%;
   width: 100%;
+}
+.top {
+  background-color: #dbdfe7;
+  position: fixed;
+  left: 100px;
+  bottom: 150px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.12);
+  z-index: 5;
+}
+.el-icon-caret-top {
+  position: absolute;
+  top: 12.5px;
+  left: 12.5px;
 }
 </style>

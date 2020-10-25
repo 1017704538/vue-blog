@@ -39,8 +39,6 @@ Vue.mixin({
   }
 })
 
-import './plugins/element.js'
-
 Vue.config.productionTip = false
 
 new Vue({

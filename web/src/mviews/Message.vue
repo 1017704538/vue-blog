@@ -8,8 +8,13 @@
       type="textarea"
       placeholder="请输入留言"
     />
-    <van-button round type="info" size="large" @click="addMessage" style="margin: 0.45rem"
-    >发布</van-button
+    <van-button
+      round
+      type="info"
+      size="large"
+      @click="addMessage"
+      style="margin: 0.45rem"
+      >发布</van-button
     >
     <!-- 评论列表 -->
     <div class="messageList">
@@ -90,10 +95,11 @@ export default {
           this.getMessageList();
           this.message.content = "";
         } else {
-          this.$message.error("留言不能为空");
+          this.$notify("留言不能为空");
         }
       } else {
-        this.$message.error("请先登录");
+        this.$notify("请先登录");
+        this.$router.push("/mLogin");
       }
     },
   },

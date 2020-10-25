@@ -33,7 +33,7 @@ export default {
   opacity: 0.8;
   padding: 20px;
   position: absolute;
-  top: 0;
+  top: 80px;
   bottom: 10%;
   width: 60%;
   border-radius: 4px;

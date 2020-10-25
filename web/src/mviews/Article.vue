@@ -124,7 +124,7 @@ export default {
         }
       } else {
         this.$notify("请先登录");
-        this.$router.push('/mLogin')
+        this.$router.push("/mLogin");
       }
     },
   },
@@ -136,6 +136,19 @@ export default {
 </script>
 
 <style>
+.content {
+  margin: 0 auto;
+  font-family: "Microsoft YaHei", arial, sans-serif;
+  color: #444444;
+  line-height: 2 !important;
+  padding: 30px;
+}
+@media screen and (min-width: 768px) {
+    body {
+        width: 748px;
+        margin: 10px auto;
+    }
+}
 .content img {
   width: 100%;
   display: block;

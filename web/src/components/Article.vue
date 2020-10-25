@@ -131,6 +131,13 @@ export default {
 </script>
 
 <style>
+.content {
+  margin: 0 auto;
+  font-family: "Microsoft YaHei", arial, sans-serif;
+  color: #444444;
+  line-height: 2 !important;
+  padding: 30px;
+}
 .content img {
   width: 100%;
   display: block;
