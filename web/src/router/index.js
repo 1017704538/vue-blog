@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
+import NProgress from 'nprogress'
 // import Home from '../views/Home.vue'
 // import HomeContent from '../components/HomeContent.vue'
 const Home = () => import(/* webpackChunkName: "home_homecontent" */ '../views/Home.vue')
@@ -34,9 +34,9 @@ const MessageBoard = () => import(/* webpackChunkName: "MessageBoard" */ '../vie
 const Mhome = () => import(/* webpackChunkName: "Mhome" */ '../mviews/Mhome.vue')
 const homeCard = () => import(/* webpackChunkName: "Mhome" */ '../mviews/homeCard.vue')
 
-const mArticleList = () => import(/* webpackChunkName: "mArticle" */ '../mviews/ArticleList.vue')
+const mArticleList = () => import(/* webpackChunkName: "mArticleList" */ '../mviews/ArticleList.vue')
 
-const mArticle = () => import(/* webpackChunkName: "Article" */ '../mviews/Article.vue')
+const mArticle = () => import(/* webpackChunkName: "mArticle" */ '../mviews/Article.vue')
 
 const File = () => import(/* webpackChunkName: "File" */ '../mviews/File.vue')
 
@@ -96,6 +96,17 @@ const routes = [
 
 const router = new VueRouter({
   routes
+})
+
+router.beforeEach((to, from , next) => {
+  // 每次切换页面时，调用进度条
+  NProgress.start();
+
+  next();
+});
+router.afterEach(() => {  
+  // 在即将进入新的页面组件前，关闭掉进度条
+  NProgress.done()
 })
 
 

@@ -3,13 +3,13 @@ html,body,#app{
     height: 100%;
     margin: 0;
     padding: 0;
-    cursor: url('../img/mouse.png'),auto;
+    cursor: url('http://qiniu.yukikazesama.cn/mouse.png'),auto;
 }
 ul :hover{
-    cursor: url('../img/mouse2.png'),auto;
+    cursor: url('http://qiniu.yukikazesama.cn/mouse2.png'),auto;
 }
 .el-button :hover {
-    cursor: url('../img/mouse2.png'),auto;
+    cursor: url('http://qiniu.yukikazesama.cn/mouse2.png'),auto;
 }
 .el-card {
     width: 70%;
@@ -24,11 +24,11 @@ ul :hover{
     margin-top: 10px;
 }
 .el-pagination :hover {
-    cursor: url('../img/mouse2.png'),auto;
+    cursor: url('http://qiniu.yukikazesama.cn/mouse2.png'),auto;
 }
 .el-tag {
     margin: 10px;
-    cursor: url('../img/mouse2.png'),auto;
+    cursor: url('http://qiniu.yukikazesama.cn/mouse2.png'),auto;
   }
 @media screen and (max-width: 750px) {
     .el-message-box {

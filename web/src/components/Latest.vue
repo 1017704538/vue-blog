@@ -93,7 +93,7 @@ export default {
   box-shadow: 0px 0px 8px black;
 }
 .latest :hover {
-  cursor: url("../assets/img/mouse2.png"), auto;
+  cursor: url("http://qiniu.yukikazesama.cn/mouse2.png"), auto;
 }
 .latest .el-card__body {
   padding: 5px;

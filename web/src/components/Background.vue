@@ -22,27 +22,27 @@ export default {
       imgs: [
         {
           fileName: "0.jpg",
-          imgURL: "http://qipanol5b.hn-bkt.clouddn.com/0.jpg",
+          imgURL: "http://qiniu.yukikazesama.cn/0.jpg",
         },
         {
           fileName: "1.jpg",
-          imgURL: "http://qipanol5b.hn-bkt.clouddn.com/1.jpg",
+          imgURL: "http://qiniu.yukikazesama.cn/1.jpg",
         },
         {
           fileName: "2.jpg",
-          imgURL: "http://qipanol5b.hn-bkt.clouddn.com/2.jpg",
+          imgURL: "http://qiniu.yukikazesama.cn/2.jpg",
         },
         {
           fileName: "3.jpg",
-          imgURL: "http://qipanol5b.hn-bkt.clouddn.com/3.jpg",
+          imgURL: "http://qiniu.yukikazesama.cn/3.jpg",
         },
         {
           fileName: "4.jpg",
-          imgURL: "http://qipanol5b.hn-bkt.clouddn.com/4.jpg",
+          imgURL: "http://qiniu.yukikazesama.cn/4.jpg",
         },
       ],
       isAnimate: false,
-      showImg: "http://qipanol5b.hn-bkt.clouddn.com/0.jpg",
+      showImg: "http://qiniu.yukikazesama.cn/0.jpg",
       showIndex: 0,
       show: true,
     };

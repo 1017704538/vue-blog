@@ -61,7 +61,7 @@ export default {
   height: 100%;
   display: block;
   border-radius: 4px;
-  cursor: url("../assets/img/mouse2.png"), auto;
+  cursor: url("http://qiniu.yukikazesama.cn/mouse2.png"), auto;
   transition: all 0.6s;
 }
 .card-cover :hover {

@@ -123,7 +123,7 @@
 		left: 0;
 		float: left;
 		transition: all 1.8s linear;
-		background: url("../../public/live2d/model/rem/11.jpg") no-repeat;
+		background: url("http://qiniu.yukikazesama.cn/live2d11.jpg") no-repeat;
 		background-size: 200px 354px;
 	}
 
